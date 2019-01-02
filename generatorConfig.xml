@@ -1,0 +1,83 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE generatorConfiguration-->
+        <!--PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"-->
+        <!--"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">-->
+
+<!--&lt;!&ndash; 配置Run As Maven build : Goals 参数 : mybatis-generator:generate -Dmybatis.generator.overwrite=true &ndash;&gt;-->
+<!--&lt;!&ndash; 配置 tableName,使用 Run As Maven build 生成 dao model 层 &ndash;&gt;-->
+<!--<generatorConfiguration>-->
+    <!--&lt;!&ndash; 配置文件路径-->
+    <!--<properties url="${mybatis.generator.generatorConfig.properties}"/>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;数据库驱动包路径 &ndash;&gt;-->
+    <!--<classPathEntry location="D:/java/lib/repo/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar"/>-->
+
+    <!--<context id="DB2Tables" targetRuntime="MyBatis3" defaultModelType="flat">-->
+        <!--&lt;!&ndash;关闭注释 &ndash;&gt;-->
+        <!--<commentGenerator>-->
+            <!--<property name="suppressAllComments" value="true"/>-->
+        <!--</commentGenerator>-->
+
+        <!--&lt;!&ndash;数据库连接信息 &ndash;&gt;-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.199.36:3306/data_security_center" userId="root"-->
+                        <!--password="zq">-->
+        <!--</jdbcConnection>-->
+
+        <!--&lt;!&ndash;生成的model 包路径 &ndash;&gt;-->
+        <!--<javaModelGenerator targetPackage="dw.platform.data.security.center.model" targetProject="src/main/java">-->
+            <!--<property name="enableSubPackages" value="ture"/>-->
+            <!--<property name="trimStrings" value="true"/>-->
+        <!--</javaModelGenerator>-->
+
+        <!--&lt;!&ndash;生成xml mapper文件 路径 &ndash;&gt;-->
+        <!--<sqlMapGenerator targetPackage="/mapper/master" targetProject="src/main/resources">-->
+            <!--<property name="enableSubPackages" value="ture"/>-->
+        <!--</sqlMapGenerator>-->
+
+        <!--&lt;!&ndash; 生成的Dao接口 的包路径 &ndash;&gt;-->
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="dw.platform.data.security.center.master.mapper" targetProject="src/main/java">-->
+            <!--<property name="enableSubPackages" value="ture"/>-->
+        <!--</javaClientGenerator>-->
+
+        <!--&lt;!&ndash;对应数据库表名 &ndash;&gt;-->
+        <!--&lt;!&ndash; <table tableName="">-->
+
+        <!--</table> &ndash;&gt;-->
+        <!--<table tableName="account" domainObjectName="Account" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+        <!--<table tableName="account_history" domainObjectName="AccountHistory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+            <!--<columnOverride column="oper_description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+        <!--<table tableName="cluster_user" domainObjectName="ClusterUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+        <!--<table tableName="cluster_user_history" domainObjectName="ClusterUserHistory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+            <!--<columnOverride column="oper_description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+        <!--<table tableName="role" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+        <!--<table tableName="role_history" domainObjectName="RoleHistory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+            <!--<columnOverride column="oper_description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+        <!--<table tableName="role_db_prv" domainObjectName="RoleDbPrv" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+        <!--<table tableName="role_db_prv_history" domainObjectName="RoleDbPrvHistory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+            <!--<columnOverride column="oper_description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+        <!--<table tableName="role_table_prv" domainObjectName="RoleTablePrv" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+        <!--<table tableName="role_table_prv_history" domainObjectName="RoleTablePrvHistory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+            <!--<columnOverride column="oper_description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+
+    <!--</context>-->
+<!--</generatorConfiguration>-->

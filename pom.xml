@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.14.RELEASE</version>
+		<relativePath />
+	</parent>
+	<groupId>dw.platform</groupId>
+	<artifactId>data-security-center</artifactId>
+	<!-- 	<version>0.0.1-RELEASE</version>-->
+	<packaging>jar</packaging>
+
+	<name>data-security-center</name>
+	<description>data-security-center project for Spring Boot</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<lombok.version>1.18.2</lombok.version>
+		<fastjson.version>1.2.47</fastjson.version>
+		<druid.version>1.1.5</druid.version>
+		<guava.version>18.0</guava.version>
+		<ymmoa-session-api.version>1.0.0-SNAPSHOT</ymmoa-session-api.version>
+		<ymmoa-user-api.version>1.0.0</ymmoa-user-api.version>
+		<ymmoa-department-api.version>1.0.3</ymmoa-department-api.version>
+		<dpsf-net.version>2.7.8-YMM-1.0.9</dpsf-net.version>
+		<lion-client.version>1.0.0</lion-client.version>
+		<cat-core.version>1.3.6</cat-core.version>
+		<avatar-tracker.version>2.2.5</avatar-tracker.version>
+
+		<jetty.version>8.1.17.v20150415</jetty.version>
+		<jersey.version>2.5</jersey.version>
+		<!--<javassist.version>3.4.GA</javassist.version>-->
+		<javax.annotation-api.version>1.2-b01</javax.annotation-api.version>
+		<javax.mail.version>1.5.2</javax.mail.version>
+		<jackson-jaxrs-json-provider.version>2.1.4</jackson-jaxrs-json-provider.version>
+		<api-all.version>1.0.0-M31</api-all.version>
+		<jsch.version>0.1.8</jsch.version>
+		<hadoop.version>2.3.0</hadoop.version>
+		<hive.version>1.1.0</hive.version>
+		<!--<hive.version>2.1.1</hive.version>-->
+		<eureka-client-adapter.version>1.0.2-20181018.210526-1</eureka-client-adapter.version>
+
+		<aspectjweaver.version>1.8.13</aspectjweaver.version>
+		<pagehelper.version>5.1.2</pagehelper.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
+		</dependency>
+
+		<!-- /////////////////////////////3A start /////////////////////////////////// -->
+		<dependency>
+			<groupId>com.ymmoa</groupId>
+			<artifactId>ymmoa-session-api</artifactId>
+			<version>${ymmoa-session-api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ymmoa</groupId>
+			<artifactId>ymmoa-user-api</artifactId>
+			<version>${ymmoa-user-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ymmoa</groupId>
+			<artifactId>ymmoa-department-api</artifactId>
+			<version>${ymmoa-department-api.version}</version>
+		</dependency>
+		<!-- /////////////////////////////3A  end /////////////////////////////////// -->
+
+		<!-- /////////////////////////////dianping start /////////////////////////////////// -->
+		<dependency>
+			<groupId>com.dianping.dpsf</groupId>
+			<artifactId>dpsf-net</artifactId>
+			<version>${dpsf-net.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>guava</artifactId>
+					<groupId>com.google.guava</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>log4j</artifactId>
+					<groupId>log4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-lang</artifactId>
+					<groupId>commons-lang</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dianping.lion</groupId>
+			<artifactId>lion-client</artifactId>
+			<version>${lion-client.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>curator-framework</artifactId>
+					<groupId>org.apache.curator</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>log4j</artifactId>
+					<groupId>log4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>zookeeper</artifactId>
+					<groupId>org.apache.zookeeper</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dianping.cat</groupId>
+			<artifactId>cat-core</artifactId>
+			<version>${cat-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dianping</groupId>
+			<artifactId>avatar-tracker</artifactId>
+			<version>${avatar-tracker.version}</version>
+		</dependency>
+		<!-- /////////////////////////////dianping end /////////////////////////////////// -->
+
+		<!-- /////////////////////////////aclservice dependency start /////////////////////////////////// -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+
+		<!-- jersey -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>${jersey.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>guava</artifactId>
+					<groupId>com.google.guava</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>javax.annotation-api</artifactId>
+					<groupId>javax.annotation</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-jetty-http</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-jetty-servlet</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>${jersey.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>guava</artifactId>
+					<groupId>com.google.guava</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.4.GA</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>${javax.annotation-api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>javax.mail-api</artifactId>
+			<version>${javax.mail.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.jaxrs</groupId>
+			<artifactId>jackson-jaxrs-json-provider</artifactId>
+			<version>${jackson-jaxrs-json-provider.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.directory.api</groupId>
+			<artifactId>api-all</artifactId>
+			<version>${api-all.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>jsch</groupId>
+			<artifactId>jsch</artifactId>
+			<version>${jsch.version}</version>
+		</dependency>
+
+		<!-- hadoop -->
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-client</artifactId>
+			<version>${hadoop.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>guava</artifactId>
+					<groupId>com.google.guava</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jackson-core-asl</artifactId>
+					<groupId>org.codehaus.jackson</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jackson-mapper-asl</artifactId>
+					<groupId>org.codehaus.jackson</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jersey-core</artifactId>
+					<groupId>com.sun.jersey</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>avro</artifactId>
+					<groupId>org.apache.avro</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-lang</artifactId>
+					<groupId>commons-lang</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- hive -->
+		<dependency>
+			<groupId>org.apache.hive</groupId>
+			<artifactId>hive-jdbc</artifactId>
+			<version>${hive.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>guava</artifactId>
+					<groupId>com.google.guava</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>curator-framework</artifactId>
+					<groupId>org.apache.curator</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jsr305</artifactId>
+					<groupId>com.google.code.findbugs</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>guice</artifactId>
+					<groupId>com.google.inject</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>hadoop-annotations</artifactId>
+					<groupId>org.apache.hadoop</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>hadoop-yarn-api</artifactId>
+					<groupId>org.apache.hadoop</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>hadoop-yarn-common</artifactId>
+					<groupId>org.apache.hadoop</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>hadoop-yarn-server-common</artifactId>
+					<groupId>org.apache.hadoop</groupId>
+				</exclusion>
+                <exclusion>
+                    <artifactId>jersey-client</artifactId>
+                    <groupId>com.sun.jersey</groupId>
+                </exclusion>
+				<exclusion>
+					<artifactId>jackson-core-asl</artifactId>
+					<groupId>org.codehaus.jackson</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jackson-jaxrs</artifactId>
+					<groupId>org.codehaus.jackson</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jackson-mapper-asl</artifactId>
+					<groupId>org.codehaus.jackson</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jackson-xc</artifactId>
+					<groupId>org.codehaus.jackson</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jersey-core</artifactId>
+					<groupId>com.sun.jersey</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jettison</artifactId>
+					<groupId>org.codehaus.jettison</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.hive</groupId>
+			<artifactId>hive-cli</artifactId>
+			<version>${hive.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.eclipse.jetty.aggregate</groupId>
+					<artifactId>jetty-all</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.hive</groupId>
+					<artifactId>hive-shims</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jline</artifactId>
+					<groupId>jline</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.hive</groupId>
+			<artifactId>hive-exec</artifactId>
+			<version>${hive.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>pentaho-aggdesigner-algorithm</artifactId>
+					<groupId>org.pentaho</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>antlr-runtime</artifactId>
+					<groupId>org.antlr</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>guava</artifactId>
+					<groupId>com.google.guava</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-compiler</artifactId>
+					<groupId>org.codehaus.janino</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-httpclient</artifactId>
+					<groupId>commons-httpclient</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-lang</artifactId>
+					<groupId>commons-lang</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>curator-framework</artifactId>
+					<groupId>org.apache.curator</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ymmoa</groupId>
+			<artifactId>eureka-client-adapter</artifactId>
+			<version>${eureka-client-adapter.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-configuration</artifactId>
+					<groupId>commons-configuration</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>guava</artifactId>
+					<groupId>com.google.guava</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>tomcat-servlet-api</artifactId>
+					<groupId>org.apache.tomcat</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>tomcat-juli</artifactId>
+					<groupId>org.apache.tomcat</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>curator-client</artifactId>
+					<groupId>org.apache.curator</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>curator-framework</artifactId>
+					<groupId>org.apache.curator</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jsr305</artifactId>
+					<groupId>com.google.code.findbugs</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>servo-core</artifactId>
+					<groupId>com.netflix.servo</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+		<!-- /////////////////////////////aclservice dependency end /////////////////////////////////// -->
+
+		<!-- aspectjweaver -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectjweaver.version}</version>
+		</dependency>
+		<!-- pageHelper -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>${pagehelper.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>utf-8</encoding>
+					<useDefaultDelimiters>true</useDefaultDelimiters>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+
+		</plugins>
+		<!-- <finalName>data-security-center</finalName> -->
+	</build>
+
+</project>
